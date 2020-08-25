@@ -30,9 +30,10 @@ class Products with ChangeNotifier {
   }
 
   Future<void> getProduct([bool filterUser = false]) async {
-    final filterString = filterUser ? 'orderBy="creatorId"&equalTo="$usrId"': '';
+    final filterString =
+        filterUser ? 'orderBy="creatorId"&equalTo="$usrId"' : '';
     final url =
-        'https://flutter-shop-app-72a96.firebaseio.com/products.json?auth=$authToken&$filterString';
+        'https://flutter-shop-app-72a96.firebaseio.com/products.json?auth=$authToken';
     try {
       final response = await http.get(url);
       final extData = json.decode((response.body)) as Map<String, dynamic>;
@@ -51,7 +52,8 @@ class Products with ChangeNotifier {
           title: prodData['title'],
           price: prodData['price'],
           imgUrl: prodData['imgUrl'],
-          isFavorite: favoriteData == null ? false : favoriteData[prodId] ?? false,
+          isFavorite:
+              favoriteData == null ? false : favoriteData[prodId] ?? false,
         ));
       });
       _items = loadedProd;

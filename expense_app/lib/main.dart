@@ -14,13 +14,14 @@ class MyApp extends StatelessWidget {
       title: 'Flutter APP',
       home: MyHomePage(),
       theme: ThemeData(
-          primarySwatch: Colors.brown,
-          accentColor: Colors.amber,
-          textTheme: ThemeData.light().textTheme.copyWith(
-                button: TextStyle(
-                  color: Colors.white,
-                ),
-              )),
+        primarySwatch: Colors.brown,
+        accentColor: Colors.amber,
+        textTheme: ThemeData.light().textTheme.copyWith(
+              button: TextStyle(
+                color: Colors.white,
+              ),
+            ),
+      ),
     );
   }
 }
@@ -134,16 +135,17 @@ class _MyHomePageState extends State<MyHomePage> {
                   0.3,
               child: Chart(_recentTransct),
             ),
-            if(!isLand) txListWid,
-           if(isLand) _showChart
-              ? Container(
-                  height: (mediaQuery.size.height -
-                          appBar.preferredSize.height -
-                          mediaQuery.padding.top) *
-                      0.3,
-                  child: Chart(_recentTransct),
-                )
-              : txListWid,
+          if (!isLand) txListWid,
+          if (isLand)
+            _showChart
+                ? Container(
+                    height: (mediaQuery.size.height -
+                            appBar.preferredSize.height -
+                            mediaQuery.padding.top) *
+                        0.3,
+                    child: Chart(_recentTransct),
+                  )
+                : txListWid,
         ],
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
